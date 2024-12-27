@@ -31,7 +31,7 @@ fun OceanButton(onClick: PaddingValues) {
         },
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         shape = RoundedCornerShape(24.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = Color(0xFFF5F5F5)
@@ -44,7 +44,7 @@ fun OceanButton(onClick: PaddingValues) {
                 .CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(8.dp)
 
         ) {
             Text("Океан",

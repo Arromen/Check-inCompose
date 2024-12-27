@@ -2,11 +2,13 @@ package com.example.check_incompose
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -100,16 +102,22 @@ fun MyScreen() {
                 }
             )
         },
+        modifier = Modifier.padding(0.dp),
         content = { innerPadding ->
             Column(modifier = Modifier
                 .padding(innerPadding)
-                .padding(horizontal = 16.dp)
+                .fillMaxSize()
+                .padding(0.dp)
             ) {
-                OceanButton(innerPadding)
+                OceanButton(
+                    innerPadding
+                )
 
                 TabRow(
                     selectedTabIndex = selectedTabIndex,
-                    modifier = Modifier.padding(horizontal = 16.dp),
+                    modifier = Modifier
+                        .padding(horizontal = 0.dp,
+                            vertical = 0.dp),
                     indicator = { tabPositions ->
                         if (tabPositions.isNotEmpty()) {
                             val currentTabPosition = tabPositions[selectedTabIndex]
@@ -147,11 +155,27 @@ fun MyScreen() {
                 }
 
                 HorizontalPager(
-                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                     state = pagerState,
                     modifier = Modifier.weight(1f)
                 ) { page ->
+                    when (page) {
+                        0 -> {
+                            Column(modifier = Modifier
+                                .padding(0.dp)
+                            ) {
 
+                            }
+                        }
+
+                        1 -> {
+                            Column(modifier = Modifier
+                                .padding(0.dp)
+                            ) {
+
+                            }
+                        }
+                    }
                 }
             }
         }
